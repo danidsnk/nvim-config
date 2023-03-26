@@ -2,6 +2,12 @@ return {
     'neovim/nvim-lspconfig',
 
     opts = {
+        diagnostics = {
+            --underline = true,
+            update_in_insert = true,
+            --virtual_text = { spacing = 4, prefix = "●" },
+            --severity_sort = true,
+        },
         on_attach = function(client, bufnr)
             vim.lsp.semantic_tokens.start(bufnr, client.id, {})
             --local semantic = client.config.capabilities.textDocument.semanticTokens
