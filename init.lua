@@ -19,8 +19,10 @@ vim.keymap.set('i', 'jk', '<Esc>`^', { silent = true, noremap = true })
 
 require('autocmds')
 require('lazy').setup('plugins')
+require('scroll')
 
 local o = vim.opt
+o.clipboard = 'unnamedplus'
 o.nu = true
 o.fileencoding = 'utf-8'
 o.tabstop = 4
@@ -32,6 +34,9 @@ o.splitright = true
 o.list = true
 o.listchars:append 'space:⋅'
 o.listchars:append 'tab:» '
+o.scrolloff = 5
+o.clipboard = 'unnamedplus'
+o.termguicolors = true
 --o.listchars:append 'eol:~'
 o.mouse = 'a'
 -- vim.cmd('language ru_RU.utf-8')

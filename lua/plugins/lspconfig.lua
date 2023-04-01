@@ -1,6 +1,9 @@
 return {
     'neovim/nvim-lspconfig',
 
+    dependencies = {
+        { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+    },
     opts = {
         diagnostics = {
             --underline = true,
@@ -11,6 +14,7 @@ return {
         on_attach = function(client, bufnr)
             vim.lsp.semantic_tokens.start(bufnr, client.id, {})
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr, silent = true, noremap = true })
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, silent = true, noremap = true })
             --local semantic = client.config.capabilities.textDocument.semanticTokens
             --client.server_capabilities.semanticTokensProvider = {
             --    full = true,
@@ -34,6 +38,9 @@ return {
                 }
             },
             single_file_support = true,
+        }
+        require('lspconfig').lua_ls.setup{
+            on_attach = opts.on_attach,
         }
     end,
 }
