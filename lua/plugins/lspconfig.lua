@@ -41,6 +41,7 @@ return {
         }
         require('lspconfig').lua_ls.setup{
             on_attach = opts.on_attach,
+            cmd = {'lua-language-server'},
         }
     end,
 }
