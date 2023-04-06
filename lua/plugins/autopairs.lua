@@ -5,6 +5,7 @@ return {
     },
     opts = {
         check_ts = true,
+        disable_filetype = { "TelescopePrompt" , "vim" },
     },
     config = function(_, opts)
         local ap = require'nvim-autopairs'

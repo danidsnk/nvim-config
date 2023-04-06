@@ -7,7 +7,7 @@ return {
             require('vscode').load()
             local c = require('vscode.colors').get_colors()
             vim.api.nvim_set_hl(0, '@variable', { fg = c.vscWhite })
-            vim.api.nvim_set_hl(0, '@variable.builtin', { fg = '#808080' })
+            vim.api.nvim_set_hl(0, '@variable.builtin', { fg = '#808080', italic = true })
             --vim.api.nvim_set_hl(0, '@property', { link = '@text' })
             vim.api.nvim_set_hl(0, '@field', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@keyword', { fg = c.vscBlue })
