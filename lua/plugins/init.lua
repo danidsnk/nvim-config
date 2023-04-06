@@ -5,8 +5,19 @@ return {
         config = function(_, opts)
             require('vscode').setup(opts)
             require('vscode').load()
-            --vim.api.nvim_set_hl(0, '@variable', { link = '@text' })
+            local c = require('vscode.colors').get_colors()
+            vim.api.nvim_set_hl(0, '@variable', { fg = c.vscWhite })
+            vim.api.nvim_set_hl(0, '@variable.builtin', { fg = '#808080' })
             --vim.api.nvim_set_hl(0, '@property', { link = '@text' })
+            vim.api.nvim_set_hl(0, '@field', { fg = c.vscWhite })
+            vim.api.nvim_set_hl(0, '@keyword', { fg = c.vscBlue })
+            vim.api.nvim_set_hl(0, '@conditional', { fg = c.vscBlue })
+            vim.api.nvim_set_hl(0, '@repeat', { fg = c.vscBlue })
+            vim.api.nvim_set_hl(0, '@exception', { fg = c.vscBlue })
+            vim.api.nvim_set_hl(0, '@include', { fg = c.vscBlue })
+            --vim.api.nvim_set_hl(0, '@parameter', { fg = c.vscWhite })
+            vim.api.nvim_set_hl(0, '@constant', { fg = '#32B4FF' })
+            vim.api.nvim_set_hl(0, '@attribute', { fg = c.vscBlueGreen })
         end,
     },
     {
