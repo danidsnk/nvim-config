@@ -16,6 +16,10 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
 vim.keymap.set('i', 'jk', '<Esc>`^', { silent = true, noremap = true })
+vim.keymap.set('i', '<C-h>', '<Left>', { silent = true, noremap = true })
+vim.keymap.set('i', '<C-j>', '<Down>', { silent = true, noremap = true })
+vim.keymap.set('i', '<C-k>', '<Up>', { silent = true, noremap = true })
+vim.keymap.set('i', '<C-l>', '<Right>', { silent = true, noremap = true })
 
 require('autocmds')
 require('lazy').setup('plugins')
@@ -40,4 +44,4 @@ o.updatetime = 100
 o.confirm = true
 --o.listchars:append 'eol:~'
 o.mouse = 'a'
--- vim.cmd('language ru_RU.utf-8')
+vim.cmd('language en_US.utf-8')
