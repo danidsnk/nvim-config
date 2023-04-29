@@ -43,5 +43,22 @@ return {
             on_attach = opts.on_attach,
             cmd = {'lua-language-server'},
         }
+        require('lspconfig')['hls'].setup{
+            filetypes = { 'haskell', 'lhaskell', 'cabal' },
+            cmd = { "haskell-language-server-wrapper", "--lsp" },
+            single_file_support = true,
+--            root_dir = function (filepath)
+--                return (
+--                    util.root_pattern('hie.yaml', 'stack.yaml', 'cabal.project')(filepath)
+--                    or util.root_pattern('*.cabal', 'package.yaml')(filepath)
+--                )
+--            end,
+            settings = {
+                haskell = {
+                    cabalFormattingProvider = "cabalfmt",
+                    formattingProvider = "ormolu"
+                }
+            },
+        }
     end,
 }
