@@ -32,7 +32,7 @@ return {
             timeout = 4000,
         },
         init = function()
-            vim.notify = require 'notify'
+            vim.notify = require('notify')
         end,
     },
 }

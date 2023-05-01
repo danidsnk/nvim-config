@@ -14,10 +14,10 @@ return {
     },
     event = 'InsertEnter',
     opts = function()
-        local cmp = require 'cmp'
+        local cmp = require('cmp')
 
-        local luasnip = require 'luasnip'
-        require 'luasnip.loaders.from_vscode'.lazy_load()
+        local luasnip = require('luasnip')
+        require('luasnip.loaders.from_vscode').lazy_load()
 
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),

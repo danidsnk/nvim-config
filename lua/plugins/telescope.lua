@@ -7,14 +7,14 @@ return {
     },
     cmd = 'Telescope',
     keys = {
-        { '<leader>e', '<cmd>Telescope file_browser<cr>', desc = 'open Telescope' },
-        { '<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'open ' },
-        { '<C-b>', '<cmd>Telescope buffers<cr>', desc = 'open ' },
-        { '<leader>fw', '<cmd>Telescope live_grep<cr>', desc = 'open ' },
+        { '<leader>e',  '<cmd>Telescope file_browser<cr>', desc = 'open Telescope' },
+        { '<leader>ff', '<cmd>Telescope find_files<cr>',   desc = 'open ' },
+        { '<C-b>',      '<cmd>Telescope buffers<cr>',      desc = 'open ' },
+        { '<leader>fw', '<cmd>Telescope live_grep<cr>',    desc = 'open ' },
     },
     config = function(_, opts)
-        require 'telescope'.setup(opts)
-        require 'telescope'.load_extension('file_browser')
+        require('telescope').setup(opts)
+        require('telescope').load_extension('file_browser')
     end,
     opts = {
         pickers = {
@@ -47,21 +47,21 @@ return {
                 mappings = {
                     n = {
                         ['<C-d>'] = function(prompt_bufnr)
-                            local current_picker = require 'telescope.actions.state'.get_current_picker(prompt_bufnr)
+                            local current_picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
                             local finder = current_picker.finder
 
                             vim.ui.input({
                                 prompt = 'Enter file browser depth: ',
                                 default = tostring(finder.depth),
                             }, function(input)
-                                    local num = tonumber(input)
-                                    if not num then
-                                        return
-                                    end
+                                local num = tonumber(input)
+                                if not num then
+                                    return
+                                end
 
-                                    finder.depth = num
-                                    current_picker:refresh(finder, { reset_prompt = true, multi = current_picker._multi })
-                                end)
+                                finder.depth = num
+                                current_picker:refresh(finder, { reset_prompt = true, multi = current_picker._multi })
+                            end)
                         end
                     },
                 },

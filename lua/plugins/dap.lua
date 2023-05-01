@@ -1,7 +1,7 @@
 return {
     'mfussenegger/nvim-dap',
     config = function()
-        local dap = require'dap'
+        local dap = require('dap')
         vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { silent = true, noremap = true })
         vim.keymap.set('n', '<leader>dc', dap.continue, { silent = true, noremap = true })
         vim.keymap.set('n', '<F10>', dap.step_over, { silent = true, noremap = true })
@@ -20,10 +20,10 @@ return {
         dap.adapters.python = {
             type = 'executable',
             command = 'python',
-            args = {'-m', 'debugpy.adapter'},
+            args = { '-m', 'debugpy.adapter' },
         }
 
-        dap.configurations.python = {{
+        dap.configurations.python = { {
             type = 'python',
             request = 'launch',
             name = 'Launch file',
@@ -31,6 +31,6 @@ return {
             args = {},
             pythonPath = 'python',
             justMyCode = false,
-        }}
+        } }
     end
 }

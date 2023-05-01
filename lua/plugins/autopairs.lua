@@ -5,12 +5,12 @@ return {
     },
     opts = {
         check_ts = true,
-        disable_filetype = { "TelescopePrompt" , "vim" },
+        disable_filetype = { "TelescopePrompt", "vim" },
     },
     config = function(_, opts)
-        local ap = require'nvim-autopairs'
+        local ap = require('nvim-autopairs')
         ap.setup(opts)
-        ap.add_rules(require 'nvim-autopairs.rules.endwise-lua')
+        ap.add_rules(require('nvim-autopairs.rules.endwise-lua'))
 
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp = require('cmp')
