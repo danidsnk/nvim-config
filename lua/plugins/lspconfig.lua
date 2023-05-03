@@ -51,6 +51,13 @@ return {
                 vim.opt.shiftwidth = 2
             end,
             filetypes = { 'haskell', 'lhaskell', 'cabal' },
+            settings = {
+                haskell = {
+                    plugin = {
+                        rename = { config = { crossModule = true } }
+                    }
+                }
+            }
         }
     end,
 }
