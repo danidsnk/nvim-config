@@ -21,10 +21,6 @@ vim.keymap.set('i', '<C-j>', '<Down>', { silent = true, noremap = true })
 vim.keymap.set('i', '<C-k>', '<Up>', { silent = true, noremap = true })
 vim.keymap.set('i', '<C-l>', '<Right>', { silent = true, noremap = true })
 
-require('autocmds')
-require('lazy').setup('plugins')
-require('scroll')
-
 local o = vim.opt
 o.clipboard = 'unnamedplus'
 o.expandtab = true
@@ -33,6 +29,7 @@ o.list = true
 o.listchars:append 'space:⋅'
 o.listchars:append 'tab:» '
 o.nu = true
+o.relativenumber = true
 o.scrolloff = 5
 o.shiftwidth = 4
 o.softtabstop = 4
@@ -45,4 +42,7 @@ o.confirm = true
 --o.listchars:append 'eol:~'
 o.mouse = 'a'
 vim.cmd('language en_US.utf-8')
-vim.cmd('set relativenumber')
+
+require('autocmds')
+require('lazy').setup('plugins')
+require('scroll')
