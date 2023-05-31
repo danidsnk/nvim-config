@@ -41,7 +41,7 @@ o.updatetime = 100
 o.confirm = true
 --o.listchars:append 'eol:~'
 o.mouse = 'a'
-vim.cmd('language en_US.utf-8')
+--vim.cmd('language en_US.utf-8')
 
 require('autocmds')
 require('lazy').setup('plugins')
