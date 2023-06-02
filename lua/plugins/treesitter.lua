@@ -5,7 +5,7 @@ return {
         'nvim-treesitter/playground',
     },
     opts = {
-        ensure_installed = { 'cpp', 'lua', 'vim', 'help', 'python', 'json', 'toml', 'markdown', },
+        ensure_installed = { 'cpp', 'lua', 'vim', 'python', 'json', 'toml', 'markdown', },
         highlight = {
             enable = true,
             disable = function(lang, buf)
