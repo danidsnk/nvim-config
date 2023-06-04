@@ -29,6 +29,13 @@ return {
                             return { python_exe, '-i', '-c', cmd }
                         end
                     },
+                    cpp = {
+                        command = function(meta)
+                            local filename = vim.api.nvim_buf_get_name(meta.current_bufnr)
+                            vim.keymap.set('n', '<leader>sf', function() iron.send(nil, '.L ' .. filename .. '\n') end, { silent = true, noremap = true })
+                            return { 'cling', '-std=c++20' }
+                        end
+                    },
                 },
                 repl_open_cmd = "vertical botright 80 split"
             },
