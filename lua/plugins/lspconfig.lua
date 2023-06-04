@@ -59,5 +59,8 @@ return {
                 }
             }
         }
+        require('lspconfig').clangd.setup {
+            on_attach = opts.on_attach,
+        }
     end,
 }
