@@ -1,10 +1,19 @@
 return {
     'hkupty/iron.nvim',
     config = function()
-        local iron = require("iron.core")
+        local iron = require('iron.core')
 
-        vim.keymap.set('n', '<leader>so', function() vim.cmd('IronRepl') end, { silent = true, noremap = true })
-        vim.keymap.set('v', '<leader>sc', function() iron.visual_send(); iron.send(nil, '\n') end, { silent = true, noremap = true })
+        local keymap = require('keybindings')
+        keymap.set('n', '<leader>so', function() vim.cmd('IronRepl') end)
+        keymap.set('n', '<leader>sf', iron.send_file)
+        keymap.set('v', '<leader>sc', function()
+            iron.visual_send()
+            iron.send(nil, '\n')
+        end)
+        keymap.set('n', '<leader>sr', function()
+            iron.close_repl(nil);
+            vim.cmd('IronRepl')
+        end)
 
         iron.setup {
             config = {
@@ -18,21 +27,21 @@ return {
                     },
                     python = {
                         command = function(meta)
+                            keymap.set('n', '<leader>sq', function() iron.send(nil, 'exit()\n') end)
                             local filename = vim.api.nvim_buf_get_name(meta.current_bufnr)
-                            local cmd = '__file__ = r"' .. filename .. '";exec(open(r"' .. filename .. '").read())'
+                            local open_file = '__file__ = r"' .. filename .. '";exec(open(r"' .. filename .. '").read())\n'
+                            keymap.set('n', '<leader>sf', function() iron.send(nil, open_file) end)
                             local python_exe = 'python3'
                             if vim.fn.executable('python') == 1 then
-                                -- for windows
-                                vim.keymap.set('n', '<leader>sq', function() iron.send(nil, 'exit()\n') end, { silent = true, noremap = true })
                                 python_exe = 'python'
                             end
-                            return { python_exe, '-i', '-c', cmd }
+                            return { python_exe }
                         end
                     },
                     cpp = {
                         command = function(meta)
                             local filename = vim.api.nvim_buf_get_name(meta.current_bufnr)
-                            vim.keymap.set('n', '<leader>sf', function() iron.send(nil, '.L ' .. filename .. '\n') end, { silent = true, noremap = true })
+                            keymap.set('n', '<leader>sf', function() iron.send(nil, '.L ' .. filename .. '\n') end)
                             return { 'cling', '-std=c++20' }
                         end
                     },
