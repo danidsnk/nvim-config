@@ -62,5 +62,7 @@ return {
         require('lspconfig').clangd.setup {
             on_attach = opts.on_attach,
         }
+        require('lspconfig').cmake.setup {
+        }
     end,
 }
