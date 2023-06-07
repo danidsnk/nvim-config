@@ -20,8 +20,10 @@ return {
         local languages = require('languageconfig')
         for lang, conf in pairs(languages) do
             local dapconf = conf.dap_config
-            dap.adapters[dapconf.adapter] = dapconf.adapter_config
-            dap.configurations[lang] = dapconf.default_configs
+            if dapconf ~= nil then
+                dap.adapters[dapconf.adapter] = dapconf.adapter_config
+                dap.configurations[lang] = dapconf.default_configs
+            end
         end
     end
 }

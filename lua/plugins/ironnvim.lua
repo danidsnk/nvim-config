@@ -15,36 +15,16 @@ return {
             vim.cmd('IronRepl')
         end)
 
+        local langs = require('languageconfig')
+
         iron.setup {
             config = {
                 -- Whether a repl should be discarded or not
                 scratch_repl = true,
                 repl_definition = {
-                    haskell = {
-                        command = function()
-                            return { 'cabal', 'repl' }
-                        end
-                    },
-                    python = {
-                        command = function(meta)
-                            keymap.set('n', '<leader>sq', function() iron.send(nil, 'exit()\n') end)
-                            local filename = vim.api.nvim_buf_get_name(meta.current_bufnr)
-                            local open_file = '__file__ = r"' .. filename .. '";exec(open(r"' .. filename .. '").read())\n'
-                            keymap.set('n', '<leader>sf', function() iron.send(nil, open_file) end)
-                            local python_exe = 'python3'
-                            if vim.fn.executable('python') == 1 then
-                                python_exe = 'python'
-                            end
-                            return { python_exe }
-                        end
-                    },
-                    cpp = {
-                        command = function(meta)
-                            local filename = vim.api.nvim_buf_get_name(meta.current_bufnr)
-                            keymap.set('n', '<leader>sf', function() iron.send(nil, '.L ' .. filename .. '\n') end)
-                            return { 'cling', '-std=c++20' }
-                        end
-                    },
+                    haskell = { command = langs.haskell.repl_config },
+                    python = { command = langs.python.repl_config },
+                    cpp = { command = langs.cpp.repl_config },
                 },
                 repl_open_cmd = "vertical botright 80 split"
             },
