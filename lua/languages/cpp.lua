@@ -18,7 +18,8 @@ return {
         } }
     },
     lsp_config = {
-
+        lsp = 'clangd',
+        config = {}
     },
     repl_config = function(meta)
         local iron = require('iron.core')

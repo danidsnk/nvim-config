@@ -26,43 +26,13 @@ return {
         end
     },
     config = function(_, opts)
-        require('lspconfig').pyright.setup {
-            on_attach = opts.on_attach,
-            cmd = { "pyright-langserver", "--stdio" },
-            filetypes = { "python" },
-            settings = {
-                python = {
-                    analysis = {
-                        autoSearchPaths = true,
-                        diagnosticMode = "workspace",
-                        useLibraryCodeForTypes = true
-                    }
-                }
-            },
-            single_file_support = true,
-        }
-        require('lspconfig').lua_ls.setup {
-            on_attach = opts.on_attach,
-            cmd = { 'lua-language-server' },
-        }
-        require('lspconfig').hls.setup {
-            on_attach = function(client, bufnr)
-                opts.on_attach(client, bufnr)
-                vim.opt.shiftwidth = 2
-            end,
-            filetypes = { 'haskell', 'lhaskell', 'cabal' },
-            settings = {
-                haskell = {
-                    plugin = {
-                        rename = { config = { crossModule = true } }
-                    }
-                }
-            }
-        }
-        require('lspconfig').clangd.setup {
-            on_attach = opts.on_attach,
-        }
-        require('lspconfig').cmake.setup {
-        }
+        local languages = require('languageconfig')
+        for _, conf in pairs(languages) do
+            local lspconf = conf.lsp_config
+            if lspconf ~= nil then
+                lspconf.config.on_attach = opts.on_attach
+                require('lspconfig')[lspconf.lsp].setup(lspconf.config)
+            end
+        end
     end,
 }

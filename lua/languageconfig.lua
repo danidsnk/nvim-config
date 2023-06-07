@@ -3,4 +3,5 @@ return {
     python = require('languages.python'),
     haskell = require('languages.haskell'),
     lua = require('languages.lua'),
+    cmake = require('languages.cmake'),
 }
