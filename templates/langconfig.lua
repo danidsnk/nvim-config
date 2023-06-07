@@ -6,10 +6,11 @@ return {
         },
         default_configs = { {
 
-        } }
+        } },
     },
     lsp_config = {
-
+        lsp = '',
+        config = {},
     },
     repl_config = function(meta)
         return { '' }
@@ -17,7 +18,7 @@ return {
     key_mappings = {
 
     },
-    theme = {
+    theme = function(c)
 
-    },
+    end,
 }

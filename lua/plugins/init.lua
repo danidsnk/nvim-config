@@ -6,13 +6,6 @@ return {
             require('vscode').setup(opts)
             require('vscode').load()
             local c = require('vscode.colors').get_colors()
-            vim.api.nvim_set_hl(0, '@lsp.type.function', { fg = c.vscYellow })
-            vim.api.nvim_set_hl(0, '@lsp.type.variable', { fg = c.vscWhite })
-            vim.api.nvim_set_hl(0, '@lsp.type.parameter.cpp', { fg = c.vscGray })
-            vim.api.nvim_set_hl(0, '@string.escape.cpp', { fg = c.vscYellowOrange })
-            --vim.api.nvim_set_hl(0, '@method', { fg = c.vscYellow })
-            vim.api.nvim_set_hl(0, '@lsp.mod.constructorOrDestructor.cpp', { fg = c.vscYellow })
-            --vim.api.nvim_set_hl(0, '@operator', { fg = c.vscBlue })
 
             vim.api.nvim_set_hl(0, '@variable', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@variable.builtin', { fg = '#808080', italic = true })
@@ -26,6 +19,9 @@ return {
             --vim.api.nvim_set_hl(0, '@parameter', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@constant', { fg = '#32B4FF' })
             vim.api.nvim_set_hl(0, '@attribute', { fg = c.vscBlueGreen })
+
+            local langs = require('languageconfig')
+            langs.cpp.theme(c)
         end,
     },
     {

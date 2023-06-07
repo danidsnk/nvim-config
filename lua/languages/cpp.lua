@@ -15,11 +15,11 @@ return {
             end,
             cwd = '${workspaceFolder}',
             terminal = 'integrated'
-        } }
+        } },
     },
     lsp_config = {
         lsp = 'clangd',
-        config = {}
+        config = {},
     },
     repl_config = function(meta)
         local iron = require('iron.core')
@@ -31,7 +31,13 @@ return {
     key_mappings = {
 
     },
-    theme = {
-
-    },
+    theme = function(c)
+        vim.api.nvim_set_hl(0, '@lsp.type.function', { fg = c.vscYellow })
+        vim.api.nvim_set_hl(0, '@lsp.type.variable', { fg = c.vscWhite })
+        vim.api.nvim_set_hl(0, '@lsp.type.parameter.cpp', { fg = c.vscGray })
+        vim.api.nvim_set_hl(0, '@string.escape.cpp', { fg = c.vscYellowOrange })
+        --vim.api.nvim_set_hl(0, '@method', { fg = c.vscYellow })
+        vim.api.nvim_set_hl(0, '@lsp.mod.constructorOrDestructor.cpp', { fg = c.vscYellow })
+        --vim.api.nvim_set_hl(0, '@operator', { fg = c.vscBlue })
+    end,
 }
