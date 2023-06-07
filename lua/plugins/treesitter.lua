@@ -26,7 +26,7 @@ return {
             -- termcolors = {} -- table of colour name strings
         },
         indent = { enable = true },
-        playground = { enable = true },
+        playground = { enable = false },
     },
     config = function(_, opts)
         require('nvim-treesitter.configs').setup(opts)
