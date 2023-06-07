@@ -17,20 +17,11 @@ return {
             widgets.centered_float(widgets.scopes)
         end)
 
-        dap.adapters.python = {
-            type = 'executable',
-            command = 'python',
-            args = { '-m', 'debugpy.adapter' },
-        }
-
-        dap.configurations.python = { {
-            type = 'python',
-            request = 'launch',
-            name = 'Launch file',
-            program = "${file}",
-            args = {},
-            pythonPath = 'python',
-            justMyCode = false,
-        } }
+        local languages = require('languageconfig')
+        for lang, conf in pairs(languages) do
+            local dapconf = conf.dap_config
+            dap.adapters[dapconf.adapter] = dapconf.adapter_config
+            dap.configurations[lang] = dapconf.default_configs
+        end
     end
 }
