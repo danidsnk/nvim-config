@@ -9,7 +9,7 @@ return {
         default_configs = { {
             type = 'codelldb',
             request = 'launch',
-            --C:\Users\kines\Downloads\codelldb-x86_64-windows\extension\adapter\codelldb.exe --port 13000
+            --codelldb.exe --port 13000
             program = function()
                 return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
             end,
