@@ -1,5 +1,5 @@
 return {
-    'danidsnk/lsp-inlayhints.nvim',
+    'lvimuser/lsp-inlayhints.nvim',
     lazy = true,
     init = function()
         local inlayhints = require("lsp-inlayhints")
