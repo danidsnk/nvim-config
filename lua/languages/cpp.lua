@@ -41,5 +41,6 @@ return {
         --vim.api.nvim_set_hl(0, '@method', { fg = c.vscYellow })
         vim.api.nvim_set_hl(0, '@lsp.mod.constructorOrDestructor.cpp', { fg = c.vscYellow })
         --vim.api.nvim_set_hl(0, '@operator', { fg = c.vscBlue })
+        vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = c.vscPink })
     end,
 }
