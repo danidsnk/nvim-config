@@ -19,7 +19,9 @@ return {
     },
     lsp_config = {
         lsp = 'clangd',
-        config = {},
+        config = {
+            cmd = { 'clangd', '--clang-tidy' },
+        },
     },
     repl_config = function(meta)
         local iron = require('iron.core')
