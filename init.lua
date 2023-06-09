@@ -41,7 +41,10 @@ o.updatetime = 100
 o.confirm = true
 --o.listchars:append 'eol:~'
 o.mouse = 'a'
---vim.cmd('language en_US.utf-8')
+if vim.fn.has('win32') then
+    o.shellcmdflag = '-nologo -noprofile -ExecutionPolicy RemoteSigned -command'
+    o.shellxquote = ''
+end
 
 require('autocmds')
 require('lazy').setup('plugins')
