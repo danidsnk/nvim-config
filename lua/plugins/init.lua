@@ -39,4 +39,7 @@ return {
             vim.notify = require('notify')
         end,
     },
+    {
+        'skywind3000/asyncrun.vim'
+    },
 }
