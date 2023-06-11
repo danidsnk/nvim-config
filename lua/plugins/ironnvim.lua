@@ -4,13 +4,13 @@ return {
         local iron = require('iron.core')
 
         local keymap = require('keybindings')
-        keymap.set('n', '<leader>so', function() vim.cmd('IronRepl') end)
-        keymap.set('n', '<leader>sf', iron.send_file)
-        keymap.set('v', '<leader>sc', function()
+        keymap.n_set('<leader>so', function() vim.cmd('IronRepl') end)
+        keymap.n_set('<leader>sf', iron.send_file)
+        keymap.v_set('<leader>sc', function()
             iron.visual_send()
             iron.send(nil, '\n')
         end)
-        keymap.set('n', '<leader>sr', function()
+        keymap.n_set('<leader>sr', function()
             iron.close_repl(nil);
             vim.cmd('IronRepl')
         end)

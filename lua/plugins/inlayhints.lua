@@ -21,6 +21,6 @@ return {
         })
 
         local keymap = require('keybindings')
-        keymap.set('n', '<leader>ih', inlayhints.toggle)
+        keymap.n_set('<leader>ih', inlayhints.toggle)
     end
 }

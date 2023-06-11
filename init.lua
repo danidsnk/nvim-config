@@ -15,16 +15,17 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
+local keymap = require('keybindings')
 -- nvigation in insert mode
-vim.keymap.set('i', 'jk', '<Esc>`^', { silent = true, noremap = true })
-vim.keymap.set('i', '<C-h>', '<Left>', { silent = true, noremap = true })
-vim.keymap.set('i', '<C-j>', '<Down>', { silent = true, noremap = true })
-vim.keymap.set('i', '<C-k>', '<Up>', { silent = true, noremap = true })
-vim.keymap.set('i', '<C-l>', '<Right>', { silent = true, noremap = true })
+keymap.i_set('jk', '<Esc>`^')
+keymap.i_set('<C-h>', '<Left>')
+keymap.i_set('<C-j>', '<Down>')
+keymap.i_set('<C-k>', '<Up>')
+keymap.i_set('<C-l>', '<Right>')
 -- escape terminal mode
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true, noremap = true })
+keymap.t_set('<Esc>', '<C-\\><C-n>')
 -- paste without loosing pasted
-vim.keymap.set('x', '<leader>p', '"_dP', { silent = true, noremap = true })
+keymap.x_set('<leader>p', '"_dP')
 
 local o = vim.opt
 o.clipboard = 'unnamedplus'

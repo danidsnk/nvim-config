@@ -27,7 +27,7 @@ return {
         local iron = require('iron.core')
         local keymap = require('keybindings')
         local filename = vim.api.nvim_buf_get_name(meta.current_bufnr)
-        keymap.set('n', '<leader>sf', function() iron.send(nil, '.L ' .. filename .. '\n') end)
+        keymap.n_set('<leader>sf', function() iron.send(nil, '.L ' .. filename .. '\n') end)
         return { 'cling', '-std=c++20' }
     end,
     key_mappings = {
