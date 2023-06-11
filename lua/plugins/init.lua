@@ -19,6 +19,7 @@ return {
             --vim.api.nvim_set_hl(0, '@parameter', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@constant', { fg = '#32B4FF' })
             vim.api.nvim_set_hl(0, '@attribute', { fg = c.vscBlueGreen })
+            vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = c.vscPink })
 
             local langs = require('languageconfig')
             langs.cpp.theme(c)
