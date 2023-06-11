@@ -4,6 +4,9 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     command = '%s/\\s\\+$//e',
 })
 
+vim.api.nvim_create_autocmd('InsertEnter', { command = 'set norelativenumber'})
+vim.api.nvim_create_autocmd('InsertLeave', { command = 'set relativenumber'})
+
 vim.api.nvim_create_autocmd('VimEnter', {
     group = vim.api.nvim_create_augroup('BrowseFile', { clear = true }),
     callback = function(data)
