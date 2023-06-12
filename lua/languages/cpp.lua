@@ -12,7 +12,11 @@ return {
             --codelldb --port 13000
             program = function()
                 vim.cmd('AsyncRun codelldb --port 13000')
-                return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                return vim.fn.input({
+                    prompt = 'Path to executable: ',
+                    default = vim.fn.getcwd() .. '/',
+                    completion = 'file',
+                })
             end,
             cwd = '${workspaceFolder}',
             terminal = 'integrated'
