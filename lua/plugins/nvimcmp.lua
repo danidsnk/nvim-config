@@ -48,7 +48,8 @@ return {
                     elseif luasnip.expand_or_jumpable() then
                         luasnip.expand_or_jump()
                     else
-                        fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+                        -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+                        fallback()
                     end
                 end, { "i", "s" }),
                 ["<S-Tab>"] = cmp.mapping(function()
@@ -58,7 +59,8 @@ return {
                 end, { "i", "s" }),
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
             },
             sources = cmp.config.sources {
                 { name = 'nvim_lsp' },
