@@ -6,7 +6,7 @@ return {
         keymap.n_set('<leader>db', dap.toggle_breakpoint)
         keymap.n_set('<leader>dc', dap.continue)
         keymap.n_set('<F10>', dap.step_over)
-        keymap.n_set('S-<F10>', dap.step_out)
+        keymap.n_set('<S-F11>', dap.step_out)
         keymap.n_set('<F11>', dap.step_into)
         keymap.n_set('<leader>dr', dap.repl.toggle)
         keymap.n_set('<Leader>df', function()
