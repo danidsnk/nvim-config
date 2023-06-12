@@ -1,7 +1,10 @@
 return {
     'TimUntersberger/neogit',
     dependencies = {
-        'sindrets/diffview.nvim'
+        'sindrets/diffview.nvim',
+        opts = {
+            use_icons = false,
+        }
     },
     opts = {
         integrations = {
