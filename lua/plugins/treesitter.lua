@@ -4,6 +4,7 @@ return {
         'p00f/nvim-ts-rainbow',
         'nvim-treesitter/playground',
     },
+    lazy = false,
     opts = {
         ensure_installed = { 'cpp', 'lua', 'vim', 'python', 'json', 'toml', 'markdown', },
         highlight = {

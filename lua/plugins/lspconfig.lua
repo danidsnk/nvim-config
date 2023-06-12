@@ -3,6 +3,7 @@ return {
     dependencies = {
         { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
     },
+    lazy = false,
     opts = {
         diagnostics = {
             --underline = true,

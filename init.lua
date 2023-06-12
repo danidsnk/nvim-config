@@ -53,5 +53,8 @@ if vim.fn.has('win32') then
     --o.shellxquote = ''
 end
 
-require('lazy').setup('plugins')
+require('lazy').setup {
+    spec = { { import = "plugins" }, },
+    defaults = { lazy = true, },
+}
 require('autocmds')

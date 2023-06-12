@@ -1,7 +1,6 @@
 return {
     'lvimuser/lsp-inlayhints.nvim',
-    lazy = true,
-    init = function()
+    config = function()
         local inlayhints = require("lsp-inlayhints")
         inlayhints.setup {
             enabled_at_startup = true,

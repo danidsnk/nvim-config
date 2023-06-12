@@ -1,10 +1,12 @@
 return {
     'hkupty/iron.nvim',
+    keys = {
+        { '<leader>so', '<cmd>IronRepl<CR>', desc = 'IronRepl' }
+    },
     config = function()
         local iron = require('iron.core')
 
         local keymap = require('keybindings')
-        keymap.n_set('<leader>so', function() vim.cmd('IronRepl') end)
         keymap.n_set('<leader>sf', iron.send_file)
         keymap.v_set('<leader>sc', function()
             iron.visual_send()

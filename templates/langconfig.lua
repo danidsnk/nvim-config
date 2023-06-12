@@ -1,4 +1,6 @@
 return {
+    init = function()
+    end,
     dap_config = {
         adapter = '',
         adapter_config = {
@@ -15,10 +17,6 @@ return {
     repl_config = function(meta)
         return { '' }
     end,
-    key_mappings = function()
-
-    end,
     theme = function(c)
-
     end,
 }

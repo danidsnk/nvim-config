@@ -12,6 +12,7 @@ return {
         'saadparwaiz1/cmp_luasnip',
         'rafamadriz/friendly-snippets',
     },
+    lazy = false,
     event = 'InsertEnter',
     opts = function()
         local cmp = require('cmp')

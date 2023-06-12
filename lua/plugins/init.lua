@@ -1,6 +1,7 @@
 return {
     {
         'Mofiqul/vscode.nvim',
+        lazy = false,
         opts = { transparent = true },
         config = function(_, opts)
             require('vscode').setup(opts)
@@ -9,6 +10,7 @@ return {
 
             vim.api.nvim_set_hl(0, '@variable', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@variable.builtin', { fg = '#808080', italic = true })
+            vim.api.nvim_set_hl(0, '@lsp.type.parameter', { fg = c.vscGray })
             --vim.api.nvim_set_hl(0, '@property', { link = '@text' })
             vim.api.nvim_set_hl(0, '@field', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@keyword', { fg = c.vscBlue })
@@ -27,10 +29,12 @@ return {
     },
     {
         'nvim-lualine/lualine.nvim',
-        opts = { theme = 'vscode' }
+        lazy = false,
+        opts = { theme = 'vscode' },
     },
     {
         'rcarriga/nvim-notify',
+        lazy = false,
         opts = {
             background_colour = '#000000',
             fps = 60,
@@ -41,6 +45,7 @@ return {
         end,
     },
     {
-        'skywind3000/asyncrun.vim'
+        'skywind3000/asyncrun.vim',
+        lazy = false,
     },
 }

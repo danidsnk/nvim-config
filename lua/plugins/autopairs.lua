@@ -3,6 +3,7 @@ return {
     dependencies = {
         'hrsh7th/nvim-cmp',
     },
+    lazy = false,
     opts = {
         check_ts = true,
         disable_filetype = { "TelescopePrompt", "vim" },
