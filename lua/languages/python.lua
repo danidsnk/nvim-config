@@ -1,4 +1,12 @@
 return {
+    init = function()
+        require('lazy').load({
+            plugins = {
+                'nvim-dap',
+                'hlargs.nvim',
+            }
+        })
+    end,
     dap_config = {
         adapter = 'python',
         adapter_config = {
@@ -49,10 +57,4 @@ return {
         end
         return { python_exe }
     end,
-    key_mappings = {
-
-    },
-    theme = {
-
-    },
 }

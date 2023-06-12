@@ -1,4 +1,12 @@
 return {
+    init = function()
+        require('lazy').load({
+            plugins = {
+                'nvim-dap',
+                'lsp-inlayhints.nvim',
+            }
+        })
+    end,
     dap_config = {
         adapter = 'codelldb',
         adapter_config = {
@@ -9,7 +17,6 @@ return {
         default_configs = { {
             type = 'codelldb',
             request = 'launch',
-            --codelldb --port 13000
             program = function()
                 vim.cmd('AsyncRun codelldb --port 13000')
                 return vim.fn.input({
@@ -35,13 +42,9 @@ return {
         keymap.n_set('<leader>sf', function() iron.send(nil, '.L ' .. filename .. '\n') end)
         return { 'cling', '-std=c++20' }
     end,
-    key_mappings = {
-
-    },
     theme = function(c)
         vim.api.nvim_set_hl(0, '@lsp.type.function', { fg = c.vscYellow })
         vim.api.nvim_set_hl(0, '@lsp.type.variable', { fg = c.vscWhite })
-        vim.api.nvim_set_hl(0, '@lsp.type.parameter.cpp', { fg = c.vscGray })
         vim.api.nvim_set_hl(0, '@string.escape.cpp', { fg = c.vscYellowOrange })
         --vim.api.nvim_set_hl(0, '@method', { fg = c.vscYellow })
         vim.api.nvim_set_hl(0, '@lsp.mod.constructorOrDestructor.cpp', { fg = c.vscYellow })

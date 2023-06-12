@@ -4,8 +4,8 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     command = '%s/\\s\\+$//e',
 })
 
-vim.api.nvim_create_autocmd('InsertEnter', { command = 'set norelativenumber'})
-vim.api.nvim_create_autocmd('InsertLeave', { command = 'set relativenumber'})
+vim.api.nvim_create_autocmd('InsertEnter', { command = 'set norelativenumber' })
+vim.api.nvim_create_autocmd('InsertLeave', { command = 'set relativenumber' })
 
 vim.api.nvim_create_autocmd('VimEnter', {
     group = vim.api.nvim_create_augroup('BrowseFile', { clear = true }),
@@ -22,4 +22,17 @@ vim.api.nvim_create_autocmd('VimEnter', {
 
         vim.cmd('Telescope file_browser')
     end
+})
+
+vim.api.nvim_create_autocmd('BufRead', {
+    group = vim.api.nvim_create_augroup('LoadLangConfig', { clear = true }),
+    callback = function()
+        local languages = require('languageconfig')
+        for lang, conf in pairs(languages) do
+            if vim.bo.filetype == lang then
+                conf.init()
+                return
+            end
+        end
+    end,
 })
