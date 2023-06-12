@@ -15,9 +15,9 @@ return {
     repl_config = function(meta)
         return { '' }
     end,
-    key_mappings = {
+    key_mappings = function()
 
-    },
+    end,
     theme = function(c)
 
     end,
