@@ -26,6 +26,8 @@ keymap.i_set('<C-l>', '<Right>')
 keymap.t_set('<Esc>', '<C-\\><C-n>')
 -- paste without loosing pasted
 keymap.x_set('<leader>p', '"_dP')
+-- close all buffers but this one
+vim.api.nvim_create_user_command('CloseBufferButThisOne', '%bd|e#', {})
 
 local o = vim.opt
 o.clipboard = 'unnamedplus'
