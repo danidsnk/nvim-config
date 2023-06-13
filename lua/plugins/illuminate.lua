@@ -1,15 +1,12 @@
 return {
     'RRethy/vim-illuminate',
-    event = 'InsertEnter',
-    lazy = false,
-    dependencies = { 'nvim-telescope/telescope.nvim' },
+    event = 'BufRead',
     opts = {
         providers = {
             'lsp',
             'treesitter',
             'regex',
         },
-        -- delay: delay in milliseconds
         delay = 100,
         min_count_to_highlight = 2,
     },
