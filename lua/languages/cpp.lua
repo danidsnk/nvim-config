@@ -43,11 +43,7 @@ return {
         return { 'cling', '-std=c++20' }
     end,
     theme = function(c)
-        vim.api.nvim_set_hl(0, '@lsp.type.function', { fg = c.vscYellow })
-        vim.api.nvim_set_hl(0, '@lsp.type.variable', { fg = c.vscWhite })
-        vim.api.nvim_set_hl(0, '@string.escape.cpp', { fg = c.vscYellowOrange })
-        --vim.api.nvim_set_hl(0, '@method', { fg = c.vscYellow })
         vim.api.nvim_set_hl(0, '@lsp.mod.constructorOrDestructor.cpp', { fg = c.vscYellow })
-        --vim.api.nvim_set_hl(0, '@operator', { fg = c.vscBlue })
+        vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = c.vscPink })
     end,
 }

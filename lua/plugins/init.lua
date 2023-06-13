@@ -10,18 +10,19 @@ return {
 
             vim.api.nvim_set_hl(0, '@variable', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@variable.builtin', { fg = '#808080', italic = true })
-            vim.api.nvim_set_hl(0, '@lsp.type.parameter', { fg = c.vscGray })
-            --vim.api.nvim_set_hl(0, '@property', { link = '@text' })
             vim.api.nvim_set_hl(0, '@field', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@keyword', { fg = c.vscBlue })
             vim.api.nvim_set_hl(0, '@conditional', { fg = c.vscBlue })
             vim.api.nvim_set_hl(0, '@repeat', { fg = c.vscBlue })
             vim.api.nvim_set_hl(0, '@exception', { fg = c.vscBlue })
             vim.api.nvim_set_hl(0, '@include', { fg = c.vscBlue })
-            --vim.api.nvim_set_hl(0, '@parameter', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@constant', { fg = '#32B4FF' })
             vim.api.nvim_set_hl(0, '@attribute', { fg = c.vscBlueGreen })
-            vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = c.vscPink })
+            vim.api.nvim_set_hl(0, '@string.escape', { fg = c.vscYellowOrange })
+
+            vim.api.nvim_set_hl(0, '@lsp.type.function', { fg = c.vscYellow })
+            vim.api.nvim_set_hl(0, '@lsp.type.variable', { fg = c.vscWhite })
+            vim.api.nvim_set_hl(0, '@lsp.type.parameter', { fg = c.vscGray })
 
             local langs = require('languageconfig')
             langs.cpp.theme(c)
