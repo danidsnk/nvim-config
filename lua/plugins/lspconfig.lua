@@ -3,7 +3,6 @@ return {
     dependencies = {
         { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
     },
-    lazy = false,
     opts = {
         diagnostics = {
             --underline = true,
@@ -23,7 +22,7 @@ return {
     },
     config = function(_, opts)
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
-        local languages = require('languageconfig')
+        local languages = require('languageconfig').languages
         for _, conf in pairs(languages) do
             local lspconf = conf.lsp_config
             if lspconf ~= nil then
@@ -31,6 +30,9 @@ return {
                 lspconf.config.capabilities = capabilities
                 require('lspconfig')[lspconf.lsp].setup(lspconf.config)
             end
+        end
+        require('lspconfig')['deactivate'] = function()
+            vim.cmd('LspStop')
         end
     end,
 }

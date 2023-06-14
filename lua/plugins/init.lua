@@ -23,9 +23,6 @@ return {
             vim.api.nvim_set_hl(0, '@lsp.type.function', { fg = c.vscYellow })
             vim.api.nvim_set_hl(0, '@lsp.type.variable', { fg = c.vscWhite })
             vim.api.nvim_set_hl(0, '@lsp.type.parameter', { fg = c.vscGray })
-
-            local langs = require('languageconfig')
-            langs.cpp.theme(c)
         end,
     },
     {

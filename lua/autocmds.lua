@@ -27,9 +27,6 @@ vim.api.nvim_create_autocmd('VimEnter', {
 vim.api.nvim_create_autocmd('BufRead', {
     group = vim.api.nvim_create_augroup('LoadLangConfig', { clear = true }),
     callback = function()
-        local lang = require('languageconfig')[vim.bo.filetype]
-        if lang then
-            lang.init()
-        end
+        require('languageconfig').init(vim.bo.filetype)
     end,
 })

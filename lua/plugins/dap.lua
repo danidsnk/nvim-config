@@ -18,7 +18,7 @@ return {
             widgets.centered_float(widgets.scopes)
         end)
 
-        local languages = require('languageconfig')
+        local languages = require('languageconfig').languages
         for lang, conf in pairs(languages) do
             local dapconf = conf.dap_config
             if dapconf ~= nil then
