@@ -1,7 +1,4 @@
 return {
-    init = function()
-        vim.opt.shiftwidth = 2
-    end,
     lsp_config = {
         lsp = 'hls',
         config = {
@@ -15,7 +12,9 @@ return {
             }
         }
     },
-    repl_config = function()
-        return { 'cabal', 'repl' }
-    end,
+    repl_config = {
+        cmd = function(_)
+            return { 'cabal', 'repl' }
+        end,
+    },
 }

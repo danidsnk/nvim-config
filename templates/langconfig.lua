@@ -14,9 +14,12 @@ return {
         lsp = '',
         config = {},
     },
-    repl_config = function(meta)
-        return { '' }
-    end,
-    theme = function(c)
-    end,
+    repl_config = {
+        cmd = function(_)
+        end,
+        keymap = {
+            --send_file = function(iron)end,
+            --close_repl = function(iron)end,
+        },
+    },
 }

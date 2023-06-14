@@ -1,11 +1,8 @@
 return {
     init = function()
-        require('lazy').load({
-            plugins = {
-                'nvim-dap',
-                'hlargs.nvim',
-            }
-        })
+        require('lazy').load { plugins = {
+            'hlargs.nvim',
+        } }
     end,
     dap_config = {
         adapter = 'python',
@@ -41,20 +38,23 @@ return {
             single_file_support = true,
         }
     },
-    repl_config = function(meta)
-        local iron = require('iron.core')
-        local keymap = require('keybindings')
-
-        keymap.set('n', '<leader>sq', function() iron.send(nil, 'exit()\n') end)
-
-        local filename = vim.api.nvim_buf_get_name(meta.current_bufnr)
-        local open_file = '__file__ = r"' .. filename .. '";exec(open(r"' .. filename .. '").read())\n'
-        keymap.set('n', '<leader>sf', function() iron.send(nil, open_file) end)
-
-        local python_exe = 'python3'
-        if vim.fn.executable('python') == 1 then
-            python_exe = 'python'
-        end
-        return { python_exe }
-    end,
+    repl_config = {
+        cmd = function(_)
+            local python_exe = 'python3'
+            if vim.fn.executable('python') == 1 then
+                python_exe = 'python'
+            end
+            return { python_exe }
+        end,
+        keymap = {
+            send_file = function(iron)
+                local filename = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
+                local open_file = '__file__ = r"' .. filename .. '";exec(open(r"' .. filename .. '").read())\n'
+                return iron.send(nil, open_file)
+            end,
+            close_repl = function(iron)
+                return iron.send(nil, 'exit()\n')
+            end
+        },
+    }
 }
