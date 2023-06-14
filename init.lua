@@ -15,7 +15,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
-local keymap = require('keybindings')
+local keymap = require('keymapwrapper')
 -- nvigation in insert mode
 keymap.i_set('jk', '<Esc>`^')
 keymap.i_set('<C-h>', '<Left>')

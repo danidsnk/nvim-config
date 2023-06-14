@@ -15,7 +15,7 @@ return {
         },
     },
     init = function()
-        local keymap = require('keybindings')
+        local keymap = require('keymapwrapper')
         keymap.n_set('<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>')
     end,
 }

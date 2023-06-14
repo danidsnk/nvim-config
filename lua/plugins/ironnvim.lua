@@ -24,7 +24,7 @@ return {
         local lsp = require('helpers.lspwrappers')
 
         -- Keymaps
-        local keymap = require('keybindings')
+        local keymap = require('keymapwrapper')
         keymap.n_set('<leader>sq', function()
             local fn = get_keymap(langs, 'close_repl')
             if fn then return fn(iron) end

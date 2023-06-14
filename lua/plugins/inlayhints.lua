@@ -19,7 +19,7 @@ return {
             end,
         })
 
-        local keymap = require('keybindings')
+        local keymap = require('keymapwrapper')
         keymap.n_set('<leader>ih', inlayhints.toggle)
     end
 }

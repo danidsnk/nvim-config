@@ -11,7 +11,7 @@ return {
             --severity_sort = true,
         },
         on_attach = function(client, bufnr)
-            local keymap = require('keybindings')
+            local keymap = require('keymapwrapper')
             keymap.n_set('<leader>rn', vim.lsp.buf.rename)
             keymap.n_set('K', vim.lsp.buf.hover)
             keymap.n_set('<leader>F', function()

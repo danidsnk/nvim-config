@@ -2,7 +2,7 @@ return {
     'mfussenegger/nvim-dap',
     config = function()
         local dap = require('dap')
-        local keymap = require('keybindings')
+        local keymap = require('keymapwrapper')
         keymap.n_set('<leader>db', dap.toggle_breakpoint)
         keymap.n_set('<leader>dc', dap.continue)
         keymap.n_set('<F10>', dap.step_over)
