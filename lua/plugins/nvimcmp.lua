@@ -24,7 +24,7 @@ return {
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
                 { name = 'path' },
-                { name = 'cmdline' }
+                { name = 'cmdline' },
             }
         })
 
@@ -32,8 +32,17 @@ return {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp_document_symbol' },
-                { name = 'buffer' }
+                { name = 'buffer' },
             })
+        })
+
+        cmp.setup.cmdline("@", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'nvim_lsp_document_symbol' },
+                { name = 'buffer' },
+                { name = 'path' },
+            }),
         })
 
         return {
@@ -63,14 +72,15 @@ return {
                 -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             },
-            sources = cmp.config.sources {
+            sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
+            }, {
                 { name = 'buffer' },
                 { name = 'treesitter' },
                 { name = 'path' },
                 { name = 'nvim-lsp-signature-help' },
-            },
+            }),
             experimental = {
                 ghost_text = {
                     hl_group = 'LspCodeLens',
