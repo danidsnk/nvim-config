@@ -7,10 +7,10 @@ return {
     },
     cmd = 'Telescope',
     keys = {
-        { '<leader>e',  '<cmd>Telescope file_browser<cr>', desc = 'open Telescope' },
-        { '<leader>ff', '<cmd>Telescope find_files<cr>',   desc = 'open ' },
-        { '<C-b>',      '<cmd>Telescope buffers<cr>',      desc = 'open ' },
-        { '<leader>fw', '<cmd>Telescope live_grep<cr>',    desc = 'open ' },
+        { '<leader>e',  '<cmd>Telescope file_browser<cr>' },
+        { '<leader>ff', '<cmd>Telescope find_files<cr>' },
+        { '<C-b>',      '<cmd>Telescope buffers<cr>' },
+        { '<leader>fw', '<cmd>Telescope live_grep<cr>' },
     },
     config = function(_, opts)
         require('telescope').setup(opts)
