@@ -22,6 +22,7 @@ return {
     },
     config = function(_, opts)
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        capabilities.offsetEncoding = 'utf-8'
         local languages = require('languageconfig').languages
         for _, conf in pairs(languages) do
             local lspconf = conf.lsp_config
