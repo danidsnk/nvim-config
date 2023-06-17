@@ -49,7 +49,7 @@ o.updatetime = 100
 o.confirm = true
 --o.listchars:append 'eol:~'
 o.mouse = 'a'
-if vim.fn.has('win32') then
+if vim.fn.has('win32') == 1 then
     o.shell = 'cmd'
     --o.shellcmdflag = '-nologo -noprofile -ExecutionPolicy RemoteSigned -command'
     --o.shellxquote = ''
