@@ -1,13 +1,9 @@
-local function get_keymap(langs, keymap)
+local function get_hook(langs, key)
     local lang = langs[vim.bo.filetype]
-    if lang then
-        if lang.repl_config then
-            local lk = lang.repl_config.keymap
-            if lk then
-                if lk[keymap] then
-                    return lk[keymap]
-                end
-            end
+    if lang and lang.repl_config then
+        local lk = lang.repl_config.hooks
+        if lk and lk[key] then
+            return lk[key]
         end
     end
     return nil
@@ -26,12 +22,12 @@ return {
         -- Keymaps
         local keymap = require('keymapwrapper')
         keymap.n_set('<leader>sq', function()
-            local fn = get_keymap(langs, 'close_repl')
+            local fn = get_hook(langs, 'close_repl')
             if fn then return fn(iron) end
             return iron.close_repl(nil)
         end)
         keymap.n_set('<leader>sf', function()
-            local fn = get_keymap(langs, 'send_file')
+            local fn = get_hook(langs, 'send_file')
             if fn then return fn(iron) end
             return iron.send_file()
         end)

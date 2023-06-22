@@ -3,6 +3,13 @@ return {
         require('lazy').load { plugins = {
             'hlargs.nvim',
         } }
+
+        require('keymapwrapper').n_set('<leader>G', function()
+            vim.notify('format python file FIXME')
+            if vim.bo.filetype == 'python' then
+                vim.cmd('!autopep8 -i -v %')
+            end
+        end)
     end,
     dap_config = {
         adapter = 'python',
@@ -21,7 +28,7 @@ return {
             justMyCode = false,
         } }
     },
-    lsp_config = {
+    lsp_config = { {
         lsp = 'pyright',
         config = {
             cmd = { "pyright-langserver", "--stdio" },
@@ -37,7 +44,7 @@ return {
             },
             single_file_support = true,
         }
-    },
+    } },
     repl_config = {
         cmd = function(_)
             local python_exe = 'python3'
@@ -46,7 +53,7 @@ return {
             end
             return { python_exe }
         end,
-        keymap = {
+        hooks = {
             send_file = function(iron)
                 local filename = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
                 local open_file = '__file__ = r"' .. filename .. '";exec(open(r"' .. filename .. '").read())\n'

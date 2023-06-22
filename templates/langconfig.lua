@@ -17,7 +17,7 @@ return {
     repl_config = {
         cmd = function(_)
         end,
-        keymap = {
+        hooks = {
             --send_file = function(iron)end,
             --close_repl = function(iron)end,
         },

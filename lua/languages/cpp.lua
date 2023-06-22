@@ -40,7 +40,7 @@ return {
         cmd = function(_)
             return { 'cling', '-std=c++20' }
         end,
-        keymap = {
+        hooks = {
             send_file = function(iron)
                 local filename = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
                 return iron.send(nil, '.L ' .. filename .. '\n')
