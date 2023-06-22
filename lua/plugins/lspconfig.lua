@@ -23,13 +23,23 @@ return {
     config = function(_, opts)
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
         capabilities.offsetEncoding = 'utf-8'
+        local function setup_config(lspconfig)
+            lspconfig.config.on_attach = opts.on_attach
+            lspconfig.config.capabilities = capabilities
+            require('lspconfig')[lspconfig.lsp].setup(lspconfig.config)
+        end
+
         local languages = require('languageconfig').languages
         for _, conf in pairs(languages) do
             local lspconf = conf.lsp_config
             if lspconf ~= nil then
-                lspconf.config.on_attach = opts.on_attach
-                lspconf.config.capabilities = capabilities
-                require('lspconfig')[lspconf.lsp].setup(lspconf.config)
+                if lspconf.lsp ~= nil then
+                    setup_config(lspconf)
+                else
+                    for _, lsp in pairs(lspconf) do
+                        setup_config(lsp)
+                    end
+                end
             end
         end
         require('lspconfig')['deactivate'] = function()
