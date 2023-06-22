@@ -13,10 +13,12 @@ return {
         on_attach = function(client, bufnr)
             local keymap = require('keymapwrapper')
             keymap.n_set('<leader>rn', vim.lsp.buf.rename)
+            keymap.n_set('<leader>sd', vim.diagnostic.open_float)
             keymap.n_set('K', vim.lsp.buf.hover)
             keymap.n_set('<leader>F', function()
                 vim.lsp.buf.format { async = true }
             end)
+            -- vim.lsp.buf.code_action for quickfix
             vim.lsp.semantic_tokens.start(bufnr, client.id, {})
         end
     },
