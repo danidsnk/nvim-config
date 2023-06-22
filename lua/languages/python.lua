@@ -28,23 +28,12 @@ return {
             justMyCode = false,
         } }
     },
-    lsp_config = { {
-        lsp = 'pyright',
-        config = {
-            cmd = { "pyright-langserver", "--stdio" },
-            filetypes = { "python" },
-            settings = {
-                python = {
-                    analysis = {
-                        autoSearchPaths = true,
-                        diagnosticMode = "workspace",
-                        useLibraryCodeForTypes = true
-                    }
-                }
-            },
-            single_file_support = true,
+    lsp_config = {
+        {
+            lsp = 'pylsp',
+            config = {}
         }
-    } },
+    },
     repl_config = {
         cmd = function(_)
             local python_exe = 'python3'
