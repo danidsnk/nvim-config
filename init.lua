@@ -47,6 +47,7 @@ o.tabstop = 4
 o.termguicolors = true
 o.updatetime = 100
 o.confirm = true
+o.colorcolumn = '80'
 --o.listchars:append 'eol:~'
 o.mouse = 'a'
 if vim.fn.has('win32') == 1 then
