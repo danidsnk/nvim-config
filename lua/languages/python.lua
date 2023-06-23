@@ -3,13 +3,6 @@ return {
         require('lazy').load { plugins = {
             'hlargs.nvim',
         } }
-
-        require('keymapwrapper').n_set('<leader>G', function()
-            vim.notify('format python file FIXME')
-            if vim.bo.filetype == 'python' then
-                vim.cmd('!autopep8 -i -v %')
-            end
-        end)
     end,
     dap_config = {
         adapter = 'python',
@@ -29,10 +22,14 @@ return {
         } }
     },
     lsp_config = {
+        --{
+        --    lsp = 'pylsp',
+        --    config = {}
+        --},
         {
-            lsp = 'pylsp',
+            lsp = 'pyright',
             config = {}
-        }
+        },
     },
     repl_config = {
         cmd = function(_)

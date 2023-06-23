@@ -16,7 +16,14 @@ return {
             keymap.n_set('<leader>sd', vim.diagnostic.open_float)
             keymap.n_set('K', vim.lsp.buf.hover)
             keymap.n_set('<leader>F', function()
-                vim.lsp.buf.format { async = true }
+                if vim.bo.filetype == 'python' then
+                    vim.notify('format python file FIXME')
+                    if vim.bo.filetype == 'python' then
+                        vim.cmd('!autopep8 -i -v %')
+                    end
+                else
+                    vim.lsp.buf.format { async = true }
+                end
             end)
             -- vim.lsp.buf.code_action for quickfix
             vim.lsp.semantic_tokens.start(bufnr, client.id, {})
