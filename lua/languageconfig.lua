@@ -1,4 +1,4 @@
-LangConf = {
+local LangConf = {
     languages = {}
 }
 
