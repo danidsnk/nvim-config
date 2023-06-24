@@ -15,6 +15,9 @@ return {
             keymap.n_set('<leader>rn', vim.lsp.buf.rename)
             keymap.n_set('<leader>sd', vim.diagnostic.open_float)
             keymap.n_set('K', vim.lsp.buf.hover)
+            keymap.n_set('<C-]>', require'telescope.builtin'.lsp_definitions)
+            keymap.n_set('<leader>S', require'telescope.builtin'.lsp_document_symbols)
+            keymap.n_set('<leader>fr', require'telescope.builtin'.lsp_references)
             keymap.n_set('<leader>F', function()
                 if vim.bo.filetype == 'python' then
                     vim.notify('format python file FIXME')
