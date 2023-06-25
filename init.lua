@@ -24,7 +24,7 @@ keymap.i_set('<C-k>', '<Up>')
 keymap.i_set('<C-l>', '<Right>')
 -- escape terminal mode
 keymap.t_set('<Esc>', '<C-\\><C-n>')
--- paste without loosing pasted
+-- paste without "loosing" pasted
 keymap.x_set('<leader>p', '"_dP')
 -- close all buffers but this one
 vim.api.nvim_create_user_command('CloseBufferButThisOne', '%bd|e#', {})
@@ -48,12 +48,9 @@ o.termguicolors = true
 o.updatetime = 100
 o.confirm = true
 o.colorcolumn = '80'
---o.listchars:append 'eol:~'
 o.mouse = 'a'
 if vim.fn.has('win32') == 1 then
     o.shell = 'cmd'
-    --o.shellcmdflag = '-nologo -noprofile -ExecutionPolicy RemoteSigned -command'
-    --o.shellxquote = ''
 end
 
 require('lazy').setup {
