@@ -22,14 +22,8 @@ return {
         } }
     },
     lsp_config = {
-        --{
-        --    lsp = 'pylsp',
-        --    config = {}
-        --},
-        {
-            lsp = 'pyright',
-            config = {}
-        },
+        lsp = 'pyright',
+        config = {}
     },
     repl_config = {
         cmd = function(_)
