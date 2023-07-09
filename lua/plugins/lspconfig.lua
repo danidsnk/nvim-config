@@ -21,9 +21,7 @@ return {
             keymap.n_set('<leader>F', function()
                 if vim.bo.filetype == 'python' then
                     vim.notify('format python file FIXME')
-                    if vim.bo.filetype == 'python' then
-                        vim.cmd('!autopep8 -i -v %')
-                    end
+                    vim.cmd('!autopep8 -i -v %')
                 else
                     vim.lsp.buf.format { async = true }
                 end
