@@ -53,4 +53,8 @@ return {
         'skywind3000/asyncrun.vim',
         lazy = false,
     },
+    {
+        'mg979/vim-visual-multi',
+        lazy = false,
+    },
 }
