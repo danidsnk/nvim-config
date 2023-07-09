@@ -35,6 +35,10 @@ return {
     },
     config = function(_, opts)
         require('nvim-treesitter.configs').setup(opts)
+        vim.api.nvim_create_user_command('RainbowReload', function()
+            vim.cmd('TSDisable rainbow')
+            vim.cmd('TSEnable rainbow')
+        end, {})
     end,
     build = ':TSUpdate',
 }
