@@ -16,12 +16,6 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
 local keymap = require('keymapwrapper')
--- nvigation in insert mode
-keymap.i_set('jk', '<Esc>`^')
-keymap.i_set('<C-h>', '<Left>')
-keymap.i_set('<C-j>', '<Down>')
-keymap.i_set('<C-k>', '<Up>')
-keymap.i_set('<C-l>', '<Right>')
 -- escape terminal mode
 keymap.t_set('<Esc>', '<C-\\><C-n>')
 -- paste without "loosing" pasted

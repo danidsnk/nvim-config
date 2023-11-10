@@ -26,6 +26,13 @@ return {
         end,
     },
     {
+        'glacambre/firenvim',
+        lazy = not vim.g.started_by_firenvim,
+        build = function()
+            vim.fn["firenvim#install"](0)
+        end
+    },
+    {
         'nvim-lualine/lualine.nvim',
         lazy = false,
         opts = { theme = 'vscode' },
@@ -57,4 +64,10 @@ return {
         'mg979/vim-visual-multi',
         lazy = false,
     },
+    {
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require('colorizer').setup()
+        end
+    }
 }

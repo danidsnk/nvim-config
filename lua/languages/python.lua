@@ -36,7 +36,7 @@ return {
         hooks = {
             send_file = function(iron)
                 local filename = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
-                local open_file = '__file__ = r"' .. filename .. '";exec(open(r"' .. filename .. '").read())\n'
+                local open_file = '__file__ = r"' .. filename .. '";exec(open(__file__).read())\n'
                 return iron.send(nil, open_file)
             end,
             close_repl = function(iron)
