@@ -69,5 +69,16 @@ return {
         config = function()
             require('colorizer').setup()
         end
+    },
+    {
+        'folke/zen-mode.nvim',
+        keys = {
+            { '<leader>zz', '<cmd>ZenMode<cr>', desc = 'Togle zen-mode' }
+        },
+        opts = {
+            window = {
+                width = 0.4,
+            },
+        }
     }
 }
