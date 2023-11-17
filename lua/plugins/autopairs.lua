@@ -3,6 +3,7 @@ return {
     dependencies = {
         'hrsh7th/nvim-cmp',
     },
+    enabled = vim.g.started_by_firenvim,
     lazy = false,
     opts = {
         check_ts = true,
