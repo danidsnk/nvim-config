@@ -17,7 +17,6 @@ return {
     config = function()
         local iron = require('iron.core')
         local langs = require('languageconfig').languages
-        local lsp = require('helpers.lspwrappers')
 
         -- Keymaps
         local keymap = require('keymapwrapper')
@@ -31,23 +30,10 @@ return {
             if fn then return fn(iron) end
             return iron.send_file()
         end)
-        keymap.n_set('<leader>sc', function()
-            local text = lsp.func_under_cursor()
-            if text == '' then return end
-            iron.send(nil, text .. '\n')
-        end)
         keymap.n_set('<leader>se', function()
-            local text = vim.fn.input({ prompt = 'REPL> ' })
-            if text == '' then return end
-            iron.send(nil, text .. '\n')
-        end)
-        keymap.n_set('<leader>sE', function()
-            local text = vim.fn.input({
-                prompt = 'REPL> ',
-                default = lsp.func_name_under_cursor(),
-            })
-            if text == '' then return end
-            iron.send(nil, text .. '\n')
+            vim.ui.input({ prompt = 'REPL> ' }, function (input)
+                iron.send(nil, input .. '\n')
+            end)
         end)
         keymap.v_set('<leader>sc', function()
             iron.visual_send()
