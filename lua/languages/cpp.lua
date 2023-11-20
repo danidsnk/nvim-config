@@ -2,6 +2,7 @@ return {
     init = function()
         require('lazy').load { plugins = {
             'lsp-inlayhints.nvim',
+            'asyncrun.vim',
         } }
 
         local c = require('vscode.colors').get_colors()
