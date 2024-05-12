@@ -30,3 +30,6 @@ vim.api.nvim_create_autocmd('BufRead', {
         require('languageconfig').init(vim.bo.filetype)
     end,
 })
+
+-- Filetype aliases
+vim.filetype.add { extension = { cppm = 'cpp' } }

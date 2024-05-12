@@ -19,8 +19,9 @@ local keymap = require('keymapwrapper')
 -- escape terminal mode
 keymap.t_set('<Esc>', '<C-\\><C-n>')
 -- paste without "loosing" pasted
-keymap.x_set('<leader>p', '"_dP')
--- close all buffers but this one
+keymap.x_set('<leader>p', '"_dp')
+keymap.x_set('<leader>P', '"_dP')
+-- close all buffers except current
 vim.api.nvim_create_user_command('CloseBufferButThisOne', '%bd|e#', {})
 
 local o = vim.opt
