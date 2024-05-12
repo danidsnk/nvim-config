@@ -8,6 +8,9 @@ return {
         local c = require('vscode.colors').get_colors()
         vim.api.nvim_set_hl(0, '@lsp.mod.constructorOrDestructor.cpp', { fg = c.vscYellow })
         vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = c.vscPink })
+
+        local keymap = require('keymapwrapper')
+        keymap.n_set('<leader>gh', '<cmd>ClangdSwitchSourceHeader<cr>')
     end,
     dap_config = {
         adapter = 'codelldb',
