@@ -1,7 +1,6 @@
 return {
     init = function()
         require('lazy').load { plugins = {
-            'lsp-inlayhints.nvim',
             'asyncrun.vim',
         } }
 
