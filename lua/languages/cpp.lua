@@ -37,7 +37,7 @@ return {
     lsp_config = {
         lsp = 'clangd',
         config = {
-            cmd = { 'clangd', '--clang-tidy' },
+            cmd = { 'clangd', '--clang-tidy', '--background-index' },
         },
     },
     repl_config = {
