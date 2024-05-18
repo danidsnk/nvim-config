@@ -2,7 +2,6 @@ return {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
         'p00f/nvim-ts-rainbow',
-        'nvim-treesitter/playground',
         'nvim-treesitter/nvim-treesitter-textobjects'
     },
     lazy = false,
@@ -32,7 +31,6 @@ return {
             -- termcolors = {} -- table of colour name strings
         },
         indent = { enable = true },
-        playground = { enable = false },
         textobjects = {
             select = {
                 enable = true,
